@@ -25,14 +25,14 @@ std::unique_ptr<WiFi> createWiFi()
     auto base = createNetEquipment();
     
     unsigned int countEthernet;
-    bool range5ghz;
+    unsigned int range5ghz;
 
     std::cout << "Enter countEthernet" << std::endl;
     std::cin >> countEthernet;
     std::cout << "Enter range5ghz" << std::endl;
     std::cin >> range5ghz;
 
-    return std::make_unique<WiFi>(*base, static_cast<uint8_t>(countEthernet), range5ghz);
+    return std::make_unique<WiFi>(*base, static_cast<uint8_t>(countEthernet), static_cast<bool>(range5ghz));
 }
 
 std::unique_ptr<CommutatorSwitch> createCommutator()
@@ -40,14 +40,14 @@ std::unique_ptr<CommutatorSwitch> createCommutator()
     auto base = createNetEquipment();
     
     unsigned int portsSpeed;
-    bool SupportsPoE;
+    unsigned int SupportsPoE;
 
     std::cout << "Enter portsSpeed" << std::endl;
     std::cin >> portsSpeed;
     std::cout << "Enter SupportsPoE" << std::endl;
     std::cin >> SupportsPoE;
 
-    return std::make_unique<CommutatorSwitch>(*base, portsSpeed, SupportsPoE);
+    return std::make_unique<CommutatorSwitch>(*base, portsSpeed, static_cast<bool>(SupportsPoE));
 }
 
 enum class MENU
