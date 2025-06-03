@@ -42,5 +42,19 @@ int main()
     switch2.print();
     std::cout << std::endl;
 
+    // Тестирование базового класса
+    std::cout << "=== Test base class ===\n" << std::endl;
+
+    NetEquipment net1{"HP", 300};
+    NetEquipment net2{"ASUS", 500};
+
+    net1.print();
+    std::cout << std::endl;
+    net2.print();
+
+    net1.setPrice(700);
+    std::cout << std::endl;
+    net1.print();
+
     return 0;
 }
