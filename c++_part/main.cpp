@@ -56,5 +56,22 @@ int main()
     std::cout << std::endl;
     net1.print();
 
+    // Б4
+    std::cout << "\n\nBase class ptr test\n" << std::endl;
+
+    NetEquipment* netptr;
+
+    netptr = &net1;
+    netptr->print();
+    std::cout << std::endl;
+
+    netptr = &wifi1;
+    netptr->print();
+    std::cout << std::endl;
+
+    netptr = &switch1;
+    netptr->print();
+    std::cout << std::endl;
+
     return 0;
 }
