@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <stdint.h>
+#include <cstdint>
 
 class NetEquipment
 {
@@ -26,6 +27,7 @@ private:
     bool range5ghz; // Наличие диапазона Wi-Fi 5 ГГц
 public:
     WiFi(const std::string& manufact = "Unknown", uint8_t countEthernet = 1, bool range5ghz = 0, unsigned short price = 5000);
+    WiFi(const NetEquipment &net = NetEquipment(), uint8_t countEthernet = 1, bool range5ghz = 0);
 
     void print();
 
@@ -43,6 +45,7 @@ private:
     bool SupportsPoE; // Поддерживается ли Power over Ethernet
 public:
     CommutatorSwitch(const std::string& manufact = "Unknown", unsigned int portsSpeed = 100, bool SupportsPoE = 0, unsigned short price = 5000);
+    CommutatorSwitch(const NetEquipment &net = NetEquipment(), unsigned int portsSpeed = 100, bool SupportsPoE = 0);
 
     void print();
 

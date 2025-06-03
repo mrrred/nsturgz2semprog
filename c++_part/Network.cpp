@@ -19,12 +19,14 @@ void NetEquipment::setPrice(unsigned short price) { this->price = price; }
 WiFi::WiFi(const std::string& manufact, uint8_t countEthernet, bool range5ghz, unsigned short price)
     : NetEquipment(manufact, price), countEthernet{countEthernet}, range5ghz{range5ghz} {}
 
+WiFi::WiFi(const NetEquipment &net, uint8_t countEthernet, bool range5ghz)
+    : NetEquipment(net), countEthernet{countEthernet}, range5ghz{range5ghz} {}
+
 void WiFi::print()
 {
-    std::cout << "Manufact - " << manufact << std::endl;
-    std::cout << "Count Ethernet - " << countEthernet << std::endl;
+    NetEquipment::print();
+    std::cout << "Count Ethernet - " << static_cast<int>(countEthernet) << std::endl;
     std::cout << "5Ghz - " << (( range5ghz ) ? "Yes" : "No") << std::endl;
-    std::cout << "Price - " << price << " $" << std::endl;
 }
 
 uint8_t WiFi::getCountEthernet() const { return countEthernet; }
@@ -37,13 +39,14 @@ void WiFi::setRange5ghz(bool range5ghz) { this->range5ghz = range5ghz; }
 
 CommutatorSwitch::CommutatorSwitch(const std::string& manufact, unsigned int portsSpeed, bool SupportsPoE, unsigned short price)
     : NetEquipment(manufact, price), portsSpeed{portsSpeed}, SupportsPoE{SupportsPoE} {}
+CommutatorSwitch::CommutatorSwitch(const NetEquipment &net, unsigned int portsSpeed, bool SupportsPoE)
+    : NetEquipment(net), portsSpeed{portsSpeed}, SupportsPoE{SupportsPoE} {}
 
 void CommutatorSwitch::print()
 {
-    std::cout << "Manufact - " << manufact << std::endl;
+    NetEquipment::print();
     std::cout << "Ports Speed - " << portsSpeed << std::endl;
     std::cout << "PoE supports - " << (( SupportsPoE ) ? "Yes" : "No") << std::endl;
-    std::cout << "Price - " << price << " $" << std::endl;
 }
 
 unsigned int CommutatorSwitch::getPortsSpeed() const { return portsSpeed; }
