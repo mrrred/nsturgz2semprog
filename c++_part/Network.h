@@ -11,7 +11,7 @@ protected:
     unsigned short price; // Цена
 public:
     NetEquipment(std::string manufact = "Unknown", unsigned short price = 5000);
-    void print();
+    virtual void print();
 
     std::string getManufact() const; 
     unsigned short getPrice() const; 
